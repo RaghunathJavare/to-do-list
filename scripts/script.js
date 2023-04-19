@@ -12,21 +12,28 @@ const taskCreater = function () {
     alert("please Enter a Task first");
   } else {
     const html = `
-      <div class="container-fluid lists mt-4">
+      <div class=" alert container-fluid lists mt-4">
      <div class="movements">
                 <h4>${task}</h4>
             </div>
             <div class="btn__close">
-                <h2 class="btns">&times;</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"><span class="material-symbols-outlined">
+                delete
+                </span></button>
             </div>
+          
         </div>
       `;
+
+   
     taskContainer.insertAdjacentHTML("afterbegin", html);
 
     userTask.value = "";
   }
 };
 
-btnAdd.addEventListener("click", function () {
+btnAdd.addEventListener("click", function (e) {
+  e.preventDefault();
   taskCreater();
 });

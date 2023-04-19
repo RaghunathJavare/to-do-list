@@ -10,8 +10,14 @@
   background-color: black;
   height: 100vh;
   /* grid-template-columns: repeat(2, 1fr); */
-  grid-template-rows: 150px;
+  grid-template-rows: 300px;
   font-family: "Montserrat";
+}
+
+/* heading */
+.heading{
+  color: #fff;
+  font-size: 3rem;
 }
 
 /* input tasks container  */
@@ -19,6 +25,7 @@
   text-align: center;
   grid-area: 1 / 1 / span 1 / span 3;
   background-color: rgba(37, 162, 187, 0.174);
+  border-bottom: 4px solid lawngreen;
 }
 
 /* add task container  */
@@ -28,18 +35,16 @@
   background-color: blanchedalmond;
 }
 
-
 /* input tag  */
 .task {
   width: 90%;
   font-size: 1.5rem;
-  margin: 2%;
+  margin: 4%;
   background: transparent;
   border-bottom: 2px solid blueviolet;
   color: #fff;
-outline: none;
-cursor: pointer;
-  
+  outline: none;
+  cursor: pointer;
 }
 
 .btn__add {
@@ -47,12 +52,11 @@ cursor: pointer;
   width: 20rem;
   border-radius: 1rem;
 }
-.btn__add:hover{
+.btn__add:hover {
   background-color: rgb(234, 218, 189);
 }
 
-
-.lists{
+.lists {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,11 +65,24 @@ cursor: pointer;
   color: #e7e2e2;
 }
 
-.btn__close{
+.btn-close {
   cursor: pointer;
-  padding: 1% 1% 0 10%;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #fff;
+  padding-left: 3rem;
 }
 
-.hidden{
+.hidden {
   display: none;
 }
+
+
+/* media Quarys */
+@media(max-width:800px){
+  .btn__add{
+    margin-top:7%;
+  }
+}
+
