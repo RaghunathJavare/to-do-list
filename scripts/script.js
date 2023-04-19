@@ -4,6 +4,10 @@ const userTask = document.querySelector(".task");
 const btnAdd = document.querySelector(".btn__add");
 const taskContainer = document.querySelector(".add__task--container");
 const btnclose = document.querySelector(".btn__close");
+const btnDelete = document.querySelector(".btn__delete");
+
+let index = 1;
+const abstract = () => (index = 1);
 
 const taskCreater = function () {
   const task = userTask.value.toLowerCase();
@@ -14,7 +18,7 @@ const taskCreater = function () {
     const html = `
       <div class=" alert container-fluid lists mt-4">
      <div class="movements">
-                <h4>${task}</h4>
+                <h4><span class="index">${index++}</span>${task}</h4>
             </div>
             <div class="btn__close">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -26,8 +30,7 @@ const taskCreater = function () {
         </div>
       `;
 
-   
-    taskContainer.insertAdjacentHTML("afterbegin", html);
+    taskContainer.insertAdjacentHTML("beforeend", html);
 
     userTask.value = "";
   }
@@ -37,3 +40,15 @@ btnAdd.addEventListener("click", function (e) {
   e.preventDefault();
   taskCreater();
 });
+
+btnDelete.addEventListener("click", function (e) {
+  e.preventDefault();
+  taskContainer.innerHTML = "";
+  abstract();
+});
+
+taskContainer.addEventListener("click", function (e) {
+  e.target;
+  abstract();
+});
+
