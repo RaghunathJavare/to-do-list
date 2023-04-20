@@ -39,6 +39,13 @@
 .icons {
   color: #fff;
   margin: 2%;
+  animation: rotater 10s linear infinite;
+}
+
+@keyframes rotater {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* input tag  */
@@ -99,14 +106,12 @@
 /* media Querys  */
 
 @media (max-width: 500px) {
-  .btns__all{
+  .btns__all {
     display: block;
   }
-  
-.btn__add,
-.btn__delete {
-  margin: 2%;
-  
-  
-}
+
+  .btn__add,
+  .btn__delete {
+    margin: 2%;
+  }
 }
