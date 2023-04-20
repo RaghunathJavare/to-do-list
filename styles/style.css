@@ -4,6 +4,9 @@
   box-sizing: border-box;
 }
 
+body {
+  text-align: center;
+}
 /* main container */
 .app {
   display: grid;
@@ -115,3 +118,5 @@
     margin: 2%;
   }
 }
+
+
