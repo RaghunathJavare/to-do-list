@@ -18,7 +18,7 @@ const taskCreater = function () {
     const html = `
       <div class=" alert container-fluid lists mt-4">
      <div class="movements">
-                <h4><span class="index" style="color:blueviolet;">${index++}</span>${task}</h4>
+                <h4><span class="index" style="color:lawngreen">${index++}</span>${task}</h4>
             </div>
             <div class="btn__close">
                 <button type="button" class="btn-close" data-bs-dismiss="alert"
@@ -27,7 +27,7 @@ const taskCreater = function () {
                 </span></button>
             </div>
           
-        </div>
+        </div>  
       `;
 
     taskContainer.insertAdjacentHTML("beforeend", html);
