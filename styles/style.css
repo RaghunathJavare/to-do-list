@@ -32,7 +32,7 @@ body {
   grid-area: 2 / 1 / span 1 / span 3;
   /* background-color: rgb(24, 34, 33); */
   background-color: rgba(37, 162, 187, 0.174);
-
+  overflow-y: scroll;
 }
 
 /* heading */
@@ -120,6 +120,10 @@ body {
   .btn__add,
   .btn__delete {
     margin: 2%;
+  }
+
+  h4{
+    font-size: 1rem;
   }
 }
 

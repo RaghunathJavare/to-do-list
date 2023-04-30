@@ -6,6 +6,16 @@ const taskContainer = document.querySelector(".add__task--container");
 const btnclose = document.querySelector(".btn__close");
 const btnDelete = document.querySelector(".btn__delete");
 
+// current date
+const now = new Date();
+const day = `${now.getDate()}`.padStart(2, 0);
+const month = `${now.getMonth()}`.padStart(2, 0);
+const hour = `${now.getHours()}`.padStart(2, 0);const min = `${now.getMinutes()}`.padStart(2, 0);
+const year = `${now.getFullYear()}`.padStart(2, 0);
+const currentDate = `${day}/${month}/${year}: ${hour}:${min}`;
+
+console.log(currentDate);
+
 let index = 1;
 const abstract = () => (index = 1);
 
@@ -18,6 +28,7 @@ const taskCreater = function () {
     const html = `
       <div class=" alert container-fluid lists mt-4">
      <div class="movements">
+     <p style="text-align:left;">Date- ${currentDate}</p>
                 <h4><span class="index" style="color:lawngreen">${index++}</span>${task}</h4>
             </div>
             <div class="btn__close">
