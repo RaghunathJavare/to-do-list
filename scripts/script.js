@@ -10,16 +10,16 @@ const btnDelete = document.querySelector(".btn__delete");
 const now = new Date();
 const day = `${now.getDate()}`.padStart(2, 0);
 const month = `${now.getMonth()}`.padStart(2, 0);
-const hour = `${now.getHours()}`.padStart(2, 0);const min = `${now.getMinutes()}`.padStart(2, 0);
+const hour = `${now.getHours()}`.padStart(2, 0);
+const min = `${now.getMinutes()}`.padStart(2, 0);
 const year = `${now.getFullYear()}`.padStart(2, 0);
 const currentDate = `${day}/${month}/${year}: ${hour}:${min}`;
 
-console.log(currentDate);
-
 let index = 1;
+
 const abstract = () => (index = 1);
 
-const taskCreater = function () {
+const displayTask = function () {
   const task = userTask.value.toLowerCase();
 
   if (!task) {
@@ -41,6 +41,16 @@ const taskCreater = function () {
         </div>  
       `;
 
+    [...document.querySelectorAll(".lists")].forEach(function (list, i) {
+      if (i % 2 === 0) {
+        list.style.backgroundImage =
+          "linear-gradient(to top left, #39b385, #9be15d)";
+      } else {
+        list.style.backgroundImage =
+          "linear-gradient(to top left, #e52a5a, #ff585f)";
+      }
+    });
+
     taskContainer.insertAdjacentHTML("beforeend", html);
 
     userTask.value = "";
@@ -49,7 +59,7 @@ const taskCreater = function () {
 
 btnAdd.addEventListener("click", function (e) {
   e.preventDefault();
-  taskCreater();
+  displayTask();
 });
 
 btnDelete.addEventListener("click", function (e) {
