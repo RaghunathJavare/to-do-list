@@ -5,26 +5,34 @@ const btnAdd = document.querySelector(".btn__add");
 const taskContainer = document.querySelector(".add__task--container");
 const btnclose = document.querySelector(".btn__close");
 const btnDelete = document.querySelector(".btn__delete");
+const addContheading = document.querySelector(".add__container--heading");
 
 // current date
 const now = new Date();
-const day = `${now.getDate()}`.padStart(2, 0);
-const month = `${now.getMonth()}`.padStart(2, 0);
-const hour = `${now.getHours()}`.padStart(2, 0);
-const min = `${now.getMinutes()}`.padStart(2, 0);
-const year = `${now.getFullYear()}`.padStart(2, 0);
-const currentDate = `${day}/${month}/${year}: ${hour}:${min}`;
+const options = {
+  hour: "numeric",
+  minutes: "numeric",
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+};
+const currentDate = new Intl.DateTimeFormat(navigator.language, options).format(
+  now
+);
+
+// capitalize first word
+// const firstWord = (str) => str[0].toUpperCase() + str.slice(1);
 
 let index = 1;
 
 const abstract = () => (index = 1);
 
 const displayTask = function () {
-  const task = userTask.value.toLowerCase();
-
+  const task = userTask.value ?? firstWord(userTask.value);
   if (!task) {
-    alert("please Enter a Task first");
+    alert("Enter Your Task First");
   } else {
+    // addContheading.textContent = "Your Tasks";
     const html = `
       <div class=" alert container-fluid lists mt-4">
      <div class="movements">
