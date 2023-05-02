@@ -32,7 +32,7 @@ const displayTask = function () {
   if (!task) {
     alert("Enter Your Task First");
   } else {
-    // addContheading.textContent = "Your Tasks";
+    addContheading.textContent = "Your Tasks";
     const html = `
       <div class=" alert container-fluid lists mt-4">
      <div class="movements">
