@@ -27,7 +27,7 @@ const displayTask = function () {
     alert("Enter Your Task First");
   } else {
     const html = `
-      <div class=" alert container-fluid lists mt-4">
+      <div class=" alert container-fluid task__lists mt-4">
      <div class="movements">
      <p style="text-align:left;">Date- ${dateFormate()}</p>
                 <h4>${task}</h4>
