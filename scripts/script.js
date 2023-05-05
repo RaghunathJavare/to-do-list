@@ -10,7 +10,7 @@ const btnDelete = document.querySelector(".btn__delete");
 const dateFormate = function () {
   const now = new Date();
   const options = {
-    hour: "numeric",
+    hour: "numeric",  
     minutes: "numeric",
     day: "2-digit",
     month: "2-digit",
@@ -18,11 +18,13 @@ const dateFormate = function () {
   };
   return new Intl.DateTimeFormat(navigator.language, options).format(now);
 };
-// capitalize first word
-const firstWord = (str) => str[0].toUpperCase() + str.slice(1);
 
 const displayTask = function () {
-  const task = firstWord(userTask.value);
+  // capitalize first word
+  const task =
+    userTask.value ?? userTask.value[0].toUpperCase() + userTask.value.slice(1);
+
+  // const task = userTask.value;
   if (!task) {
     alert("Enter Your Task First");
   } else {

@@ -12,9 +12,10 @@ body {
   display: grid;
   background-color: black;
   height: 100vh;
-  /* grid-template-columns: repeat(2, 1fr); */
-  grid-template-rows: 300px;
   font-family: "Montserrat";
+  grid-template-rows: 400px;
+  
+
 }
 
 /* input tasks container  */
@@ -84,8 +85,8 @@ body {
 .btn__delete {
   font-size: 1rem;
   width: 10rem;
-  border-radius: 1rem;
-  margin: 1rem;
+  border-radius: 10px;
+  margin: 16px;
 }
 
 .btn__add:hover {
@@ -120,10 +121,6 @@ body {
   .btn__add,
   .btn__delete {
     margin: 2%;
-  }
-
-  h4 {
-    font-size: 1rem;
   }
   
 }
