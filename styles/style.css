@@ -5,12 +5,9 @@
 }
 
 body {
-  text-align: center;
-}
-/* main container */
-#app {
-  background-color: black;
   font-family: "Montserrat";
+  text-align: center;
+  background-color: black;
 }
 
 
@@ -18,8 +15,9 @@ body {
 /* add task container  */
 .add__task--container {
   padding: 3% 2%;
-  height: 100vh;
-  overflow: scroll;
+  height: 60vh;
+  overflow-y: scroll;
+  word-wrap: normal;
 }
 
 /* heading */
@@ -82,12 +80,7 @@ body {
   margin: 16px;
 }
 
-.btn__add:hover {
-  background-color: rgb(234, 218, 189);
-}
-.btn__delete:hover {
-  background-color: rgb(194, 85, 85);
-}
+
 
 .btns {
   display: grid;
@@ -113,6 +106,6 @@ body {
 
   .btn__add,
   .btn__delete {
-    margin: 2%;
+    margin: 4%;
   }
 }
