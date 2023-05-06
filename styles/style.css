@@ -8,39 +8,33 @@ body {
   text-align: center;
 }
 /* main container */
-.app {
-  display: grid;
+#app {
   background-color: black;
-  height: 100vh;
   font-family: "Montserrat";
-  grid-template-rows: 400px;
-  
-
 }
 
-/* input tasks container  */
 
-.input__task--container {
-  text-align: center;
-  grid-area: 1 / 1 / span 1 / span 3;
-  background-color: rgba(37, 162, 187, 0.174);
-  border-bottom: 2px solid blueviolet;
-}
 
 /* add task container  */
 .add__task--container {
   padding: 3% 2%;
-  grid-area: 2 / 1 / span 1 / span 3;
-  /* background-color: rgb(24, 34, 33); */
-  background-color: rgba(37, 162, 187, 0.174);
-  overflow-y: scroll;
+  height: 100vh;
+  overflow: scroll;
 }
 
 /* heading */
-.heading,
+.heading {
+  color: #fff;
+  font-size: 3rem;
+}
+
+
 .add__container--heading {
   color: #fff;
   font-size: 3rem;
+  margin-top: 2%;
+  border-top:3px solid #fff;
+  padding: 2%;
 }
 
 .icons {
@@ -76,7 +70,6 @@ body {
   color: #e7e2e2;
   border-left: 1px inset lawngreen;
   background-color: rgba(6, 57, 68, 0.295);
-
 }
 
 /* all btns  */
@@ -96,9 +89,10 @@ body {
   background-color: rgb(194, 85, 85);
 }
 
-.btns__all {
-  display: flex;
-  justify-content: center;
+.btns {
+  display: grid;
+  justify-content: space-evenly;
+  grid-template-columns: repeat(2, 200px);
 }
 
 .btn-close {
@@ -110,11 +104,10 @@ body {
   padding-left: 2rem;
 }
 
-
 /* media Querys  */
 
 @media (max-width: 500px) {
-  .btns__all {
+  .btns {
     display: block;
   }
 
@@ -122,5 +115,4 @@ body {
   .btn__delete {
     margin: 2%;
   }
-  
 }

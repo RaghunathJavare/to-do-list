@@ -27,17 +27,18 @@
     <title>To-Do-List</title>
 </head>
 
-<main class="app">
-    <div class="input__task--container sticky-top">
+<section id="app">
+    <div class="container-fluid">
         <form>
             <span class="material-symbols-outlined icons">
                 settings
-                </span> <label class="heading"><span style="color: orange;">To-</span>Do<span style="color:green ;">-List</span></label><span class="material-symbols-outlined icons">
-                    settings
-                    </span>
+            </span> <label class="heading"><span style="color: orange;">To-</span>Do<span
+                    style="color:green ;">-List</span></label><span class="material-symbols-outlined icons">
+                settings
+            </span>
             <input class="input__task" type="text" placeholder="Enter Your Task"><br>
 
-            <div class="btns__all">
+            <div class="btns">
                 <div>
                     <button class="btn__add">Add Task</button>
                 </div>
@@ -45,24 +46,48 @@
                     <button class="btn__delete">deleteAll</button>
                 </div>
             </div>
+            <h1 class="add__container--heading">Your Tasks</h1>
         </form>
+    </div>
+
+    <div class="container-fluid add__task--container">
 
     </div>
 
-    <div class="add__task--container">
-      <!-- task  -->  
-           
-    </div>
 
 
 
+</section>
 
 
-</main>
 
-<body>
-
-    <script src="scripts/script.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 
 </html>
+
+<!-- 
+<form>
+    <span class="material-symbols-outlined icons">
+        settings
+        </span> <label class="heading"><span style="color: orange;">To-</span>Do<span style="color:green ;">-List</span></label><span class="material-symbols-outlined icons">
+            settings
+            </span>
+    <input class="input__task" type="text" placeholder="Enter Your Task"><br>
+
+    <div class="btns__all">
+        <div>
+            <button class="btn__add">Add Task</button>
+        </div>
+        <div>
+            <button class="btn__delete">deleteAll</button>
+        </div>
+    </div>
+</form>
+
+</div>
+
+<div class="add__task--container">
+<!-- task  
+   
+</div> -->
