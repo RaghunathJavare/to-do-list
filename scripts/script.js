@@ -19,11 +19,12 @@ const dateFormate = function () {
   return new Intl.DateTimeFormat(navigator.language, options).format(now);
 };
 
+const firstUpercase = (str) => str[0].toUpperCase() + str.slice(1);
+
+
 const displayTask = function () {
   // capitalize first word
-  const task =
-    userTask.value ?? userTask.value[0].toUpperCase() + userTask.value.slice(1);
-
+  const task =  userTask.value && firstUpercase(userTask.value) ;
   // const task = userTask.value;
   if (!task) {
     alert("Enter Your Task First");
