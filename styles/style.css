@@ -52,12 +52,12 @@ body {
   width: 90%;
   font-size: 1.5rem;
   margin: 4%;
-  background: transparent;
-  border-bottom: 2px solid blueviolet;
+  background-color: rgba(65, 49, 49, 0.241);
   color: #fff;
   outline: none;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.015);
 }
 
 .task__lists {

@@ -1,72 +1,115 @@
 "use strict";
 
-const userTask = document.querySelector(".input__task");
-const btnAdd = document.querySelector(".btn__add");
+const btnAddTask = document.querySelector(".btn__add");
 const taskContainer = document.querySelector(".add__task--container");
 const btnclose = document.querySelector(".btn__close");
 const btnDelete = document.querySelector(".btn__delete");
+const user = document.querySelector(".input__task");
 
-// current date
-const dateFormate = function () {
-  const now = new Date();
-  const options = {
-    hour: "2-digit",
-    minute: "2-digit",
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  };
-  return new Intl.DateTimeFormat(navigator.language, options).format(now);
-};
+  
+class Todo {
+  constructor(task, date) {
+    this.str = task;
+    this.date = date;
+  }
+}
 
-const firstUpercase = (str) => str[0].toUpperCase() + str.slice(1);
+class App {
+  #tasks = [];
+  #date;
 
+  constructor() {
+    // get localStorage
 
-const displayTask = function () {
-  // capitalize first word
-  const task =  userTask.value && firstUpercase(userTask.value) ;
-  // const task = userTask.value;
-  if (!task) {
-    alert("Enter Your Task First");
-  } else {
+    this.#getLocalStorage();
+
+    // Attach to event handlers
+    btnAddTask.addEventListener("click", this.#rederData.bind(this));
+    btnDelete.addEventListener("click", this.#deleteAllTasks.bind(this));
+  }
+
+  #getData() {
+    // Get current date
+    const now = new Date();
+    const options = {
+      hour: "2-digit",
+      minute: "2-digit",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    };
+    this.#date = Intl.DateTimeFormat(navigator.language, options).format(now);
+  }
+
+  #rederData(e) {
+    e.preventDefault();
+    // capitalize first word
+    this.#getData();
+
+    const firstUpercase = (str) => str[0].toUpperCase() + str.slice(1);
+
+    const task = user.value && firstUpercase(user.value);
+
+    if (!task) return alert("Enter Your Task First");
+
+    const userData = new Todo(task, this.#date);
+
+    this.#displayTask(userData);
+
+    this.#tasks.push(userData);
+
+    this.#setToLocalStorage();
+  }
+
+  // display task to UI
+
+  #displayTask(task) {
     const html = `
-      <div class=" alert container-fluid task__lists mt-4">
-     <div class="movements">
-     <p style="text-align:left;">Date- ${dateFormate()}</p>
-                <h4>${task}</h4>
-            </div>
-            <div class="btn__close">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                aria-label="Close"><span class="material-symbols-outlined">
-                delete
-                </span></button>
-            </div>
-          
-        </div>  
-      `;
-
-    // [...document.querySelectorAll(".lists")].forEach(function (list, i) {
-    //   if (i % 2 === 0) {
-    //     list.style.backgroundImage =
-    //       "linear-gradient(to top left, #39b385, #9be15d)";
-    //   } else {
-    //     list.style.backgroundImage =
-    //       "linear-gradient(to top left, #e52a5a, #ff585f)";
-    //   }
-    // });
+        <div class=" alert container-fluid task__lists mt-4">
+       <div class="movements">
+       <p style="text-align:left;">Date-${task.date}</p>
+                  <h4>${task.str}</h4>
+              </div>
+              <div class="btn__close">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert"
+                  aria-label="Close"><span class="material-symbols-outlined">
+                  delete
+                  </span></button>
+              </div>
+            
+          </div>  
+        `;
 
     taskContainer.insertAdjacentHTML("beforeend", html);
 
-    userTask.value = "";
+    user.value = "";
   }
-};
 
-btnAdd.addEventListener("click", function (e) {
-  e.preventDefault();
-  displayTask();
-});
+  #deleteAllTasks(e) {
+    e.preventDefault();
 
-btnDelete.addEventListener("click", function (e) {
-  e.preventDefault();
-  taskContainer.innerHTML = "";
-});
+    taskContainer.innerHTML = "";
+    this.#reset();
+  }
+
+  #setToLocalStorage() {
+    localStorage.setItem("tasks", JSON.stringify(this.#tasks));
+  }
+
+  #getLocalStorage() {
+    const data = JSON.parse(localStorage.getItem("tasks"));
+    if (!data) return;
+    this.#tasks = data;
+
+    this.#tasks.forEach((data) => {
+      this.#displayTask(data);
+    });
+  }
+
+  #reset() {
+    localStorage.removeItem("tasks");
+    location.reload();
+  }
+}
+
+const app = new App();
